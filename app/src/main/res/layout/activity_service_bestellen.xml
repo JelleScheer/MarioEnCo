@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.jellepc.marioenco.ServiceBestellen">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/serviceNaam"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:id="@+id/naamVeld"
+        android:layout_below="@+id/serviceNaam"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/adresVeld"
+        android:layout_below="@+id/naamVeld"
+        android:layout_alignStart="@+id/naamVeld" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/telefoonVeld"
+        android:layout_below="@+id/adresVeld"
+        android:layout_alignStart="@+id/adresVeld" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/emailVeld"
+        android:layout_below="@+id/telefoonVeld"
+        android:layout_alignStart="@+id/telefoonVeld" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Annuleren"
+        android:id="@+id/bestelAnnuleer"
+        android:layout_below="@+id/emailVeld"
+        android:layout_alignStart="@+id/emailVeld"
+        android:layout_marginTop="66dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bestellen"
+        android:id="@+id/bestelBevestigen"
+        android:layout_alignTop="@+id/bestelAnnuleer"
+        android:layout_toEndOf="@+id/bestelAnnuleer" />
+
+</RelativeLayout>
