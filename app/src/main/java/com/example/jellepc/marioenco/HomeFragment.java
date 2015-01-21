@@ -1,6 +1,7 @@
 package com.example.jellepc.marioenco;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -35,6 +36,8 @@ public class HomeFragment extends Fragment {
     public static String servicenaam;
     public static Boolean eersteVerbinding = true;
     public static int geselecteerdeDienst;
+
+    public static Fragment fragmentinformatie = new InformatieFragment();
 
     @Nullable
     @Override
@@ -217,10 +220,10 @@ public class HomeFragment extends Fragment {
         Button infoknop = (Button) rootview.findViewById(R.id.infoknop);
         infoknop.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(rootview.getContext(), InfoScherm.class);
-                geselecteerdeDienst = service_spinner.getSelectedItemPosition();
-
-                startActivity(i);
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, fragmentinformatie)
+                        .commit();
             }
         });
 

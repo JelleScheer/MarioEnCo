@@ -8,6 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class ServiceFragment extends Fragment {
+    public String ip;
+    public int port;
+    public static String servicenaam;
+    
     View rootview;
     @Nullable
     @Override

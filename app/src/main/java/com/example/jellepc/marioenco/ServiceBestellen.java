@@ -26,7 +26,7 @@ public class ServiceBestellen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_bestellen);
-        servicenaam = InfoScherm.servicenaam;
+        servicenaam = InformatieFragment.servicenaam;
         ip = HomeFragment.serverIp;
 
         final TextView serviceNaam = (TextView) findViewById(R.id.serviceNaam);
@@ -92,7 +92,7 @@ public class ServiceBestellen extends Activity {
         Annuleerknop.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                Intent i = new Intent(ServiceBestellen.this, InfoScherm.class);
+                Intent i = new Intent(ServiceBestellen.this, InformatieFragment.class);
 
                 startActivity(i);
             }

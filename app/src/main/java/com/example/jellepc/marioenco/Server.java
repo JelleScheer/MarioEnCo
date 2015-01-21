@@ -33,8 +33,6 @@ public class Server extends AsyncTask<Void, Void, String>{
         this.port = port;
     }
 
-
-
     @Override
     protected String doInBackground(Void... params) {
         try {

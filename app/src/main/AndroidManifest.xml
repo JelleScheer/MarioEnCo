@@ -27,7 +27,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.example.jellepc.marioenco.InfoScherm"
+            android:name="com.example.jellepc.marioenco.InformatieFragment"
             android:configChanges="orientation"
             android:label="@string/title_activity_info_scherm"
             android:screenOrientation="portrait" >
