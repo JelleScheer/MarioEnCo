@@ -5,22 +5,10 @@
     android:gravity="center_horizontal">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/imageView"
-        android:src="@drawable/mario"
-        android:layout_above="@+id/spinner"
-        android:layout_toRightOf="@+id/textView3"
-        android:layout_toEndOf="@+id/textView3" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Mario&amp;Co"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView2"
+        android:src="@drawable/mario" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -29,22 +17,33 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
+    <TextView android:text="Mario&amp;Co Diensten" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/iptext"
+        android:textColor="#ff000000"
+        android:textIsSelectable="false"
+        android:textSize="20dp"
+        android:layout_above="@+id/spinner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="46dp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/textView4"
-        android:layout_below="@+id/spinner"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp" />
+        android:layout_above="@+id/infoknop"
+        android:layout_alignLeft="@+id/infoknop"
+        android:layout_alignStart="@+id/infoknop"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Meer informatie"
+        android:text="Meer informatie over dienst"
         android:id="@+id/infoknop"
-        android:layout_below="@+id/textView4"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp" />
+        android:layout_marginBottom="54dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

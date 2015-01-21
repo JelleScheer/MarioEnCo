@@ -7,9 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by JELLEPC on 1/17/2015.
- */
 public class ServiceFragment extends Fragment {
     View rootview;
     @Nullable

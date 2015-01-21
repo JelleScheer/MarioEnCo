@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 

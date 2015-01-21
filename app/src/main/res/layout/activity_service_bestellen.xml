@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Annuleren"
-        android:id="@+id/bestelAnnuleer"
+        android:id="@+id/annuleerBestelling"
         android:layout_below="@+id/emailVeld"
         android:layout_alignStart="@+id/emailVeld"
         android:layout_marginTop="66dp" />
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:text="Bestellen"
         android:id="@+id/bestelBevestigen"
-        android:layout_alignTop="@+id/bestelAnnuleer"
-        android:layout_toEndOf="@+id/bestelAnnuleer" />
+        android:layout_alignTop="@+id/annuleerBestelling"
+        android:layout_toEndOf="@+id/annuleerBestelling" />
 
 </RelativeLayout>

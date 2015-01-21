@@ -23,9 +23,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
-/**
- * Created by dennisvanderzalm on 11-01-15.
- */
 public class HomeFragment extends Fragment {
 
     public static String serverIp;
@@ -36,14 +33,21 @@ public class HomeFragment extends Fragment {
     private static View rootview;
     private Spinner service_spinner;
     public static String servicenaam;
+    public static Boolean eersteVerbinding = true;
+    public static int geselecteerdeDienst;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.home_layout, container, false);
-        dataOphalen();
+        if(eersteVerbinding == true) {
+            dataOphalen();
+            dataInvullen();
+        } else {
+            dataInvullen();
+            service_spinner.setSelection(geselecteerdeDienst);
+        }
         return rootview;
-
     }
 
 
@@ -129,9 +133,49 @@ public class HomeFragment extends Fragment {
                 e.printStackTrace();
             }
 
+            eersteVerbinding = false;
+
         }
 
 
+        // Locate the spinner in activity_main.xml
+        service_spinner = (Spinner) rootview.findViewById(R.id.spinner);
+
+        // Spinner adapter
+        service_spinner
+                .setAdapter(new ArrayAdapter<String>(rootview.getContext(),
+                        android.R.layout.simple_spinner_dropdown_item,
+                        serviceLijst));
+
+        // Spinner on item click listener
+        service_spinner
+                .setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+                    @Override
+                    public void onItemSelected(AdapterView<?> arg0,
+                                               View arg1, int position, long arg3) {
+                        // Locate the textviews in activity_main.xml
+                        TextView beknopteinfo = (TextView) rootview.findViewById(R.id.textView4);
+
+                        try {
+                            // Set the text followed by the position
+                            beknopteinfo.setText(beknopteInformatielijst.get(position).getString("informatiebeknopt"));
+                            servicenaam = serviceLijst.get(position);
+
+                        } catch (Exception e) {
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> arg0) {
+                    }
+                });
+
+    }
+
+    private void dataInvullen() {
         // Locate the spinner in activity_main.xml
         service_spinner = (Spinner) rootview.findViewById(R.id.spinner);
 
@@ -174,9 +218,11 @@ public class HomeFragment extends Fragment {
         infoknop.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(rootview.getContext(), InfoScherm.class);
+                geselecteerdeDienst = service_spinner.getSelectedItemPosition();
 
                 startActivity(i);
             }
         });
+
     }
 }

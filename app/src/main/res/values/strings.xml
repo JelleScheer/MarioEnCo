@@ -16,5 +16,6 @@
     <string name="title_activity_info_scherm">InfoScherm</string>
     <string name="title_activity_ip_invoeren">ipInvoeren</string>
     <string name="title_activity_service_bestellen">ServiceBestellen</string>
+    <string name="title_activity_home_fragment">Mario&amp;Co Diensten</string>
 
 </resources>

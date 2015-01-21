@@ -22,9 +22,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/progressBar2"
+        android:layout_marginTop="46dp"
+        android:background="#ffffffff"
         android:layout_below="@+id/imageView3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="63dp"
-        android:background="#ffffffff" />
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Mario&amp;Co"
+        android:id="@+id/textView2"
+        android:gravity="center_horizontal"
+        android:textSize="35dp"
+        android:layout_below="@+id/progressBar2"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

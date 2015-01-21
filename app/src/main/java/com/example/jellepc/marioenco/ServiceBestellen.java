@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,6 +20,7 @@ import java.util.concurrent.ExecutionException;
 public class ServiceBestellen extends Activity {
     private String servicenaam;
     private String ip;
+    Button Annuleerknop;
     private int port = 4444;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +88,18 @@ public class ServiceBestellen extends Activity {
             }
         });
 
+        Annuleerknop = (Button) findViewById(R.id.annuleerBestelling);
+        Annuleerknop.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Intent i = new Intent(ServiceBestellen.this, InfoScherm.class);
+
+                startActivity(i);
+            }
+        });
+
     }
+
 
 
     @Override

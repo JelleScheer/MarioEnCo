@@ -1,13 +1,16 @@
 package com.example.jellepc.marioenco;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +30,7 @@ public class UserIP extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ip_invoeren);
 
-        Button ipButton = (Button) findViewById(R.id.ipKnop);
+        Button ipButton = (Button) findViewById(R.id.infoknop);
         ipButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -37,6 +40,25 @@ public class UserIP extends Activity {
 
         });
 
+        //Enter key afvangen
+        EditText ipInvoer = (EditText) findViewById(R.id.ipInvoer);
+        ipInvoer.setOnKeyListener(new View.OnKeyListener() {
+
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                switch(keyCode) {
+                    case KeyEvent.KEYCODE_ENTER:
+                        checkServer();
+                        break;
+
+                    default:
+                        return false;
+                }
+
+                return true;
+
+            }
+        });
 
     }
 
@@ -65,12 +87,11 @@ public class UserIP extends Activity {
         }
         if (response == null) {
             serverCheck = false;
-            Toast.makeText(this, "Server reageert niet", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Verbinden met server mislukt, staat server aan?", Toast.LENGTH_LONG).show();
 
         } else {
             serverCheck = true;
             HomeFragment.serverIp = ip;
-            Toast.makeText(this, "Server succesvol verbonden", Toast.LENGTH_SHORT).show();
             Intent startApp = new Intent(this, MainActivity.class);
             startActivity(startApp);
 
