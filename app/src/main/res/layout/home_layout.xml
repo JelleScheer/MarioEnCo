@@ -8,7 +8,17 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/imageView2"
-        android:src="@drawable/mario" />
+        android:src="@drawable/mariotrans" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#ff9b9b9b"
+        android:alpha="0.5"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/iptext"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/bar" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -20,12 +30,13 @@
     <TextView android:text="Mario&amp;Co Diensten" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/iptext"
-        android:textColor="#ff000000"
+        android:textColor="#ff28af2a"
         android:textIsSelectable="false"
-        android:textSize="20dp"
-        android:layout_above="@+id/spinner"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="46dp" />
+        android:textSize="30dp"
+        android:shadowColor="#ff000000"
+        android:layout_marginTop="41dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,7 +46,8 @@
         android:layout_above="@+id/infoknop"
         android:layout_alignLeft="@+id/infoknop"
         android:layout_alignStart="@+id/infoknop"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff000000" />
 
     <Button
         android:layout_width="wrap_content"
@@ -44,6 +56,18 @@
         android:id="@+id/infoknop"
         android:layout_marginBottom="54dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/groene_knop" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Selecteer uw gewenste dienst"
+        android:id="@+id/textView"
+        android:layout_above="@+id/spinner"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:textColor="#ff000000" />
 
 </RelativeLayout>

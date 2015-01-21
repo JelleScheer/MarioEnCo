@@ -2,14 +2,103 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView2"
+        android:src="@drawable/mariotrans" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#ff9b9b9b"
+        android:alpha="0.5"
+        android:id="@+id/bar"
+        android:layout_above="@+id/naam"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/aanvraagBeknopteinformatie"
+        android:layout_marginTop="43dp"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/annuleerBestelling"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="3"
-        android:id="@+id/textView"
-        android:layout_marginTop="151dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="dienst"
+        android:id="@+id/serviceNaam"
+        android:textSize="30dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="35dp" />
+        android:layout_marginTop="41dp"
+        android:textColor="#ff28af2a" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Naam"
+        android:ems="10"
+        android:id="@+id/naam"
+        android:layout_below="@+id/serviceNaam"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/adres"
+        android:layout_below="@+id/naam"
+        android:layout_alignStart="@+id/naam"
+        android:hint="Adres" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/nummer"
+        android:layout_below="@+id/adres"
+        android:layout_alignStart="@+id/adres"
+        android:hint="Telefoonnummer" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/email"
+        android:layout_below="@+id/nummer"
+        android:layout_alignStart="@+id/nummer"
+        android:hint="Email" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Annuleren"
+        android:id="@+id/annuleerBestelling"
+        android:layout_below="@+id/email"
+        android:layout_alignStart="@+id/email"
+        android:layout_marginTop="66dp"
+        android:background="@drawable/rode_knop"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bestellen"
+        android:id="@+id/bestelBevestigenEnVerwerken"
+        android:layout_alignTop="@+id/annuleerBestelling"
+        android:layout_toEndOf="@+id/annuleerBestelling"
+        android:background="@drawable/groene_knop" />
 </RelativeLayout>

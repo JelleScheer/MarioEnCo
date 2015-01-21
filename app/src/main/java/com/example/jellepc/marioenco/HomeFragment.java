@@ -29,13 +29,14 @@ public class HomeFragment extends Fragment {
     public static String serverIp;
     public static int serverPort = 4444;
     public static ArrayList<String> serviceLijst;
-    private static ArrayList<JSONObject> beknopteInformatielijst;
-    public String informatiebeknopt = null;
+    public static ArrayList<JSONObject> beknopteInformatielijst;
+    public static String informatiebeknopt = null;
     private static View rootview;
     private Spinner service_spinner;
     public static String servicenaam;
     public static Boolean eersteVerbinding = true;
     public static int geselecteerdeDienst;
+    public static int selectedPosition;
 
     public static Fragment fragmentinformatie = new InformatieFragment();
 
@@ -220,6 +221,7 @@ public class HomeFragment extends Fragment {
         Button infoknop = (Button) rootview.findViewById(R.id.infoknop);
         infoknop.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                selectedPosition = service_spinner.getSelectedItemPosition();
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, fragmentinformatie)

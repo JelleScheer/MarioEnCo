@@ -2,7 +2,6 @@ package com.example.jellepc.marioenco;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -26,6 +25,7 @@ public class InformatieFragment extends Fragment {
     View rootview;
 
     public static Fragment fragmenthome = new HomeFragment();
+    public static Fragment fragmentservice = new ServiceFragment();
 
     @Nullable
     @Override
@@ -97,7 +97,7 @@ public class InformatieFragment extends Fragment {
             {
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, fragmenthome)
+                        .replace(R.id.container, fragmentservice)
                         .commit();
             }
         });

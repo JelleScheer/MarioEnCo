@@ -37,7 +37,8 @@
         android:text="Maak verbinding"
         android:id="@+id/infoknop"
         android:layout_below="@+id/ipInvoer"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/groene_knop" />
 
     <TextView
         android:layout_width="wrap_content"

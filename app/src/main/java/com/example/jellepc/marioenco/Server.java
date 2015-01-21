@@ -22,7 +22,7 @@ public class Server extends AsyncTask<Void, Void, String>{
 
     private String message;
     private String ip;
-    private int port;
+    public static int port = 4444;
     private String response = null;
 
     public Server(String ip, int port, String message ){
@@ -32,6 +32,8 @@ public class Server extends AsyncTask<Void, Void, String>{
         this.ip = ip;
         this.port = port;
     }
+
+
 
     @Override
     protected String doInBackground(Void... params) {
