@@ -52,7 +52,7 @@ public class ServiceFragment extends Fragment {
         }
 
 
-            naamxml = (TextView) rootview.findViewById(R.id.naam);
+        naamxml = (TextView) rootview.findViewById(R.id.naam);
         adresxml = (TextView) rootview.findViewById(R.id.adres);
         nummerxml = (TextView) rootview.findViewById(R.id.nummer);
         emailxml = (TextView) rootview.findViewById(R.id.email);
@@ -76,13 +76,18 @@ public class ServiceFragment extends Fragment {
         });
 
         Button bestelEnVerwerk = (Button) rootview.findViewById(R.id.bestelBevestigenEnVerwerken);
-        bestelEnVerwerk.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v)
-            {
-                verzendBestelling();
-            }
-        });
-
+        if(CheckNetwork.isInternetAvailable(getActivity())) //returns true if internet available
+        {
+            bestelEnVerwerk.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    verzendBestelling();
+                }
+            });
+        }
+        else
+        {
+            Toast.makeText(getActivity().getApplicationContext(), "Geen internet, kan niet versturen!", Toast.LENGTH_LONG).show();
+        }
     }
 
     private void verzendBestelling()

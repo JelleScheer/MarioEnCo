@@ -2,7 +2,9 @@ package com.example.jellepc.marioenco;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -44,6 +46,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.home_layout, container, false);
+
         if(eersteVerbinding == true) {
             dataOphalen();
             dataInvullen();
@@ -53,7 +56,6 @@ public class HomeFragment extends Fragment {
         }
         return rootview;
     }
-
 
     public void dataOphalen() {
 

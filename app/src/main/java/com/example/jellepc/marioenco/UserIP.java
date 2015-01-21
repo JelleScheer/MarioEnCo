@@ -27,6 +27,16 @@ public class UserIP extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         setTitle("Loodgieter");
 
+        if(CheckNetwork.isInternetAvailable(UserIP.this)) //returns true if internet available
+        {
+
+            Toast.makeText(UserIP.this,"Internet connection!",Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            Toast.makeText(UserIP.this,"No Internet Connection",Toast.LENGTH_LONG).show();
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ip_invoeren);
 
