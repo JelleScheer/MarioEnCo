@@ -2,6 +2,7 @@ package com.example.jellepc.marioenco;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -15,6 +16,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.concurrent.ExecutionException;
 
 public class ServiceFragment extends Fragment {
@@ -33,7 +41,7 @@ public class ServiceFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootview = inflater.inflate(R.layout.service_layout,container,false);
+        rootview = inflater.inflate(R.layout.service_layout, container, false);
 
         ip = HomeFragment.serverIp;
         port = Server.port;
@@ -42,12 +50,12 @@ public class ServiceFragment extends Fragment {
         TextView infoServiceNaam = (TextView) rootview.findViewById(R.id.serviceNaam);
         infoServiceNaam.setText(servicenaam);
 
+        getActivity().setTitle("Dienst "+servicenaam+" bestellen");
+
         final TextView serviceBeknopteinformatie = (TextView) rootview.findViewById(R.id.aanvraagBeknopteinformatie);
-        try{
+        try {
             serviceBeknopteinformatie.setText(HomeFragment.beknopteInformatielijst.get(HomeFragment.selectedPosition).getString("informatiebeknopt"));
-        }
-        catch(JSONException e)
-        {
+        } catch (JSONException e) {
 
         }
 
@@ -61,7 +69,6 @@ public class ServiceFragment extends Fragment {
 
         return rootview;
     }
-
     private void buttonHandler()
     {
         Button annuleerKnop = (Button) rootview.findViewById(R.id.annuleerBestelling);

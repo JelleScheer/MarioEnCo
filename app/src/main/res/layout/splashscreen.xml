@@ -36,6 +36,7 @@
         android:gravity="center_horizontal"
         android:textSize="35dp"
         android:layout_below="@+id/progressBar2"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff28af2a"/>
 
 </RelativeLayout>

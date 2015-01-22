@@ -25,16 +25,15 @@ public class UserIP extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTitle("Loodgieter");
+        setTitle("Mario&Co");
 
-        if(CheckNetwork.isInternetAvailable(UserIP.this)) //returns true if internet available
+        //Check voor internet verbinding
+        if(CheckNetwork.isInternetAvailable(UserIP.this))
         {
-
-            Toast.makeText(UserIP.this,"Internet connection!",Toast.LENGTH_LONG).show();
         }
         else
         {
-            Toast.makeText(UserIP.this,"No Internet Connection",Toast.LENGTH_LONG).show();
+            Toast.makeText(UserIP.this,"Geen internet verbinding, laatst opgehaalde informatie wordt getoond!",Toast.LENGTH_LONG).show();
         }
 
         super.onCreate(savedInstanceState);

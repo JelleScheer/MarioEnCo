@@ -35,7 +35,7 @@ public class InformatieFragment extends Fragment {
         ip = HomeFragment.serverIp;
         port = HomeFragment.serverPort;
         servicenaam = HomeFragment.servicenaam;
-        getActivity().setTitle(servicenaam);
+        getActivity().setTitle("Informatie over "+servicenaam);
 
         getServiceInformatie();
 

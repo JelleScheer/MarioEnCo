@@ -28,20 +28,9 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.example.jellepc.marioenco.InformatieFragment"
-            android:configChanges="orientation"
-            android:label="@string/title_activity_info_scherm"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
             android:name="com.example.jellepc.marioenco.MainActivity"
             android:configChanges="orientation"
-            android:label="@string/title_activity_home_fragment"
             android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.example.jellepc.marioenco.ServiceBestellen"
-            android:label="@string/title_activity_service_bestellen" >
         </activity>
     </application>
 

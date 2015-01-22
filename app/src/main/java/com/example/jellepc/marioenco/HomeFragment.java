@@ -206,7 +206,7 @@ public class HomeFragment extends Fragment {
                             // Set the text followed by the position
                             beknopteinfo.setText(beknopteInformatielijst.get(position).getString("informatiebeknopt"));
                             servicenaam = serviceLijst.get(position);
-
+                            getActivity().setTitle(servicenaam);
                         } catch (Exception e) {
 
                         }
@@ -218,7 +218,6 @@ public class HomeFragment extends Fragment {
                         // TODO Auto-generated method stub
                     }
                 });
-
 
         Button infoknop = (Button) rootview.findViewById(R.id.infoknop);
         infoknop.setOnClickListener(new View.OnClickListener() {

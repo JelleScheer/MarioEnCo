@@ -47,7 +47,8 @@
         android:layout_alignLeft="@+id/infoknop"
         android:layout_alignStart="@+id/infoknop"
         android:layout_centerHorizontal="true"
-        android:textColor="#ff000000" />
+        android:textColor="#ff000000"
+        android:gravity="center" />
 
     <Button
         android:layout_width="wrap_content"
@@ -69,5 +70,15 @@
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
         android:textColor="#ff000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Mario&amp;Co is het bedrijf voor het aanleggen van al uw leidingwerk!"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/iptext"
+        android:layout_alignLeft="@+id/iptext"
+        android:layout_alignStart="@+id/iptext" />
 
 </RelativeLayout>
