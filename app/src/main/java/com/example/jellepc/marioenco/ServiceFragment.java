@@ -59,7 +59,6 @@ public class ServiceFragment extends Fragment {
 
         }
 
-
         naamxml = (TextView) rootview.findViewById(R.id.naam);
         adresxml = (TextView) rootview.findViewById(R.id.adres);
         nummerxml = (TextView) rootview.findViewById(R.id.nummer);

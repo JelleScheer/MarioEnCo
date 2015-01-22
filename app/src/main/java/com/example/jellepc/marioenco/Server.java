@@ -23,7 +23,7 @@ public class Server extends AsyncTask<Void, Void, String>{
     private String message;
     private String ip;
     public static int port = 4444;
-    private String response = null;
+    private String serverResponse = null;
 
     public Server(String ip, int port, String message ){
         super();
@@ -56,7 +56,7 @@ public class Server extends AsyncTask<Void, Void, String>{
                 }
                 responseStreamReader.close();
 
-                this.response = stringBuilder.toString();
+                this.serverResponse = stringBuilder.toString();
 
             } catch (IOException e) {
                 // TODO Auto-generated catch block
@@ -64,7 +64,7 @@ public class Server extends AsyncTask<Void, Void, String>{
             }
 
 
-            System.out.println("Response: " + response);
+            System.out.println("Response: " + serverResponse);
 
             //gebruik de volgende twee methoden van de activity om informatie naar de UI thread (de activity) te sturen
         } catch (UnknownHostException e) {
@@ -74,7 +74,7 @@ public class Server extends AsyncTask<Void, Void, String>{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return response;
+        return serverResponse;
     }
 
     //ook deze methoden kunnen niet naar de UI direct communiceren, hou hier rekening mee

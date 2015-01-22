@@ -27,14 +27,9 @@ public class MainActivity extends ActionBarActivity
     List<String> list;
     TextView serviceinfo;
     String Geselecteerd;
-    /**
-     * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
-     */
+
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
-    /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
-     */
     private CharSequence mTitle;
 
     @Override
@@ -46,7 +41,6 @@ public class MainActivity extends ActionBarActivity
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
 
-        // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
@@ -69,7 +63,7 @@ public class MainActivity extends ActionBarActivity
                 objFragment = new ServiceFragment();
                 break;
         }
-        // update the main content by replacing fragments
+
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.container, objFragment)

@@ -22,7 +22,6 @@ import java.util.concurrent.ExecutionException;
 public class UserIP extends Activity {
     private Boolean serverCheck;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTitle("Mario&Co");
@@ -44,7 +43,7 @@ public class UserIP extends Activity {
 
             @Override
             public void onClick(View view) {
-                checkServer();
+                verbindServer();
             }
 
         });
@@ -57,7 +56,7 @@ public class UserIP extends Activity {
 
                 switch(keyCode) {
                     case KeyEvent.KEYCODE_ENTER:
-                        checkServer();
+                        verbindServer();
                         break;
 
                     default:
@@ -71,7 +70,7 @@ public class UserIP extends Activity {
 
     }
 
-    public void checkServer() {
+    public void verbindServer() {
         TextView ipVeld = (TextView) findViewById(R.id.ipInvoer);
         String ip = ipVeld.getText().toString();
         Log.i("ip", ip);
@@ -88,10 +87,12 @@ public class UserIP extends Activity {
                 response = new Server(ip,
                         4444, jsonObject.toString()).execute().get();
 
-            } catch (InterruptedException e) {
+            } catch (InterruptedException e)
+            {
 
             }
-        } catch (ExecutionException e1) {
+        } catch (ExecutionException e1)
+        {
 
         }
         if (response == null) {
@@ -120,11 +121,6 @@ public class UserIP extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
