@@ -54,7 +54,7 @@ public class ServiceFragment extends Fragment {
 
         final TextView serviceBeknopteinformatie = (TextView) rootview.findViewById(R.id.aanvraagBeknopteinformatie);
         try {
-            serviceBeknopteinformatie.setText(HomeFragment.beknopteInformatielijst.get(HomeFragment.selectedPosition).getString("informatiebeknopt"));
+            serviceBeknopteinformatie.setText(HomeFragment.beknopteInformatielijst.get(HomeFragment.geselecteerdePositie).getString("informatiebeknopt"));
         } catch (JSONException e) {
 
         }

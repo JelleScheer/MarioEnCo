@@ -44,13 +44,12 @@ public class InformatieFragment extends Fragment {
         TextView InfoVeld = (TextView) rootview.findViewById(R.id.infoVeld);
         InfoVeld.setText(informatie);
 
-        Log.d("Servicenaam", servicenaam);
-
         buttonHandler();
 
         return rootview;
     }
 
+    //Ophalen van uitgebreide informatie per dienst
     public void getServiceInformatie() {
         JSONObject infoObject = new JSONObject();
         try {
@@ -62,7 +61,7 @@ public class InformatieFragment extends Fragment {
             try {
                 informatie = new Server(ip,
                         port, infoObject.toString()).execute().get();
-
+            //afvangen exceptions
             } catch (ExecutionException e) {
                 e.printStackTrace();
             }
@@ -78,6 +77,7 @@ public class InformatieFragment extends Fragment {
         }
     }
 
+    //Handelt buttons af
     public void buttonHandler()
     {
         Button annuleerKnop = (Button) rootview.findViewById(R.id.annuleerKnop);

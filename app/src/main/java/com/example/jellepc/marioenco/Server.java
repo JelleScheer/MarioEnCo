@@ -25,15 +25,13 @@ public class Server extends AsyncTask<Void, Void, String>{
     public static int port = 4444;
     private String serverResponse = null;
 
-    public Server(String ip, int port, String message ){
+    public Server(String ip, int port, String message ) {
         super();
-        //gegevens om naar de server te verbinden en een message te sturen
+        //IP, Port en bericht om naar server te sturen
         this.message = message;
         this.ip = ip;
         this.port = port;
     }
-
-
 
     @Override
     protected String doInBackground(Void... params) {
@@ -41,7 +39,6 @@ public class Server extends AsyncTask<Void, Void, String>{
             Socket serverSocket = new Socket();
             serverSocket.connect(new InetSocketAddress(this.ip, this.port), 4444);
 
-            //verzend een bericht naar de server
             this.sendMessage(message, serverSocket);
 
             InputStream input;
@@ -66,7 +63,6 @@ public class Server extends AsyncTask<Void, Void, String>{
 
             System.out.println("Response: " + serverResponse);
 
-            //gebruik de volgende twee methoden van de activity om informatie naar de UI thread (de activity) te sturen
         } catch (UnknownHostException e) {
             Log.d("debug", "can't find host");
         } catch (SocketTimeoutException e) {
@@ -77,7 +73,6 @@ public class Server extends AsyncTask<Void, Void, String>{
         return serverResponse;
     }
 
-    //ook deze methoden kunnen niet naar de UI direct communiceren, hou hier rekening mee
     private void sendMessage(String message, Socket serverSocket) {
         OutputStreamWriter outputStreamWriter = null;
 

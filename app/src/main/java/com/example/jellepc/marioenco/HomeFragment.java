@@ -34,11 +34,11 @@ public class HomeFragment extends Fragment {
     public static ArrayList<JSONObject> beknopteInformatielijst;
     public static String informatiebeknopt = null;
     private static View rootview;
-    private Spinner service_spinner;
+    private Spinner diensten_spinner;
     public static String servicenaam;
-    public static Boolean eersteVerbinding = true;
+    public static Boolean initieleVerbinding = true;
     public static int geselecteerdeDienst;
-    public static int selectedPosition;
+    public static int geselecteerdePositie;
 
     public static Fragment fragmentinformatie = new InformatieFragment();
 
@@ -47,12 +47,13 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.home_layout, container, false);
 
-        if(eersteVerbinding == true) {
+        //als eerste keer verbinding is, haal alles op uit server, zo niet, laatst opgehaalde data weer invullen
+        if(initieleVerbinding == true) {
             dataOphalen();
             dataInvullen();
         } else {
             dataInvullen();
-            service_spinner.setSelection(geselecteerdeDienst);
+            diensten_spinner.setSelection(geselecteerdeDienst);
         }
         return rootview;
     }
@@ -98,6 +99,7 @@ public class HomeFragment extends Fragment {
             String value = null;
             serviceLijst = new ArrayList<String>();
 
+            //zet alle services in een JArray
             for (int i = 0; i < JArray.length(); i++) {
                 try {
                     jObject = JArray.getJSONObject(i);
@@ -112,7 +114,7 @@ public class HomeFragment extends Fragment {
                 serviceLijst.add(value);
 
             }
-            // haal beknopte informatie op
+            // korte informatie over elke dienst ophalen, in een ArrayList zetten als JSONObjecten
             beknopteInformatielijst = new ArrayList<JSONObject>();
             JSONObject beknoptjObject = new JSONObject();
             try {
@@ -122,7 +124,7 @@ public class HomeFragment extends Fragment {
                         try {
                             informatiebeknopt = new Server(serverIp,
                                     serverPort, beknoptjObject.toString()).execute().get();
-
+                        //exceptions afvangen
                         } catch (ExecutionException e) {
                             e.printStackTrace();
                         }
@@ -139,22 +141,23 @@ public class HomeFragment extends Fragment {
                 e.printStackTrace();
             }
 
-            eersteVerbinding = false;
+            //aangeven dat app al eens eerder gedraait heeft
+            initieleVerbinding = false;
 
         }
 
 
         // Locate the spinner in activity_main.xml
-        service_spinner = (Spinner) rootview.findViewById(R.id.spinner);
+        diensten_spinner = (Spinner) rootview.findViewById(R.id.spinner);
 
         // Spinner adapter
-        service_spinner
+        diensten_spinner
                 .setAdapter(new ArrayAdapter<String>(rootview.getContext(),
                         android.R.layout.simple_spinner_dropdown_item,
                         serviceLijst));
 
         // Spinner on item click listener
-        service_spinner
+        diensten_spinner
                 .setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
                     @Override
@@ -181,18 +184,19 @@ public class HomeFragment extends Fragment {
 
     }
 
+    //opgehaalde data in de spinner zetten en beknopte tekst over diensten weergeven
     private void dataInvullen() {
         // Locate the spinner in activity_main.xml
-        service_spinner = (Spinner) rootview.findViewById(R.id.spinner);
+        diensten_spinner = (Spinner) rootview.findViewById(R.id.spinner);
 
         // Spinner adapter
-        service_spinner
+        diensten_spinner
                 .setAdapter(new ArrayAdapter<String>(rootview.getContext(),
                         android.R.layout.simple_spinner_dropdown_item,
                         serviceLijst));
 
         // Spinner on item click listener
-        service_spinner
+        diensten_spinner
                 .setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
                     @Override
@@ -219,10 +223,11 @@ public class HomeFragment extends Fragment {
                     }
                 });
 
+        //naar servicepagina navigeren en dus informatie ophalen over de geselecteerdePositie
         Button infoknop = (Button) rootview.findViewById(R.id.infoknop);
         infoknop.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                selectedPosition = service_spinner.getSelectedItemPosition();
+                geselecteerdePositie = diensten_spinner.getSelectedItemPosition();
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, fragmentinformatie)

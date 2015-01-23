@@ -15,6 +15,7 @@ public class SplashScreen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashscreen);
 
+        //Na 3 seconden open het UserIP scherm
         new Handler().postDelayed(new Runnable() {
 
             /*

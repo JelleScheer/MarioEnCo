@@ -70,6 +70,7 @@ public class UserIP extends Activity {
 
     }
 
+    //server connectie maken voor ophalen van diensten
     public void verbindServer() {
         TextView ipVeld = (TextView) findViewById(R.id.ipInvoer);
         String ip = ipVeld.getText().toString();
@@ -86,7 +87,7 @@ public class UserIP extends Activity {
             try {
                 response = new Server(ip,
                         4444, jsonObject.toString()).execute().get();
-
+            //exceptions afvangen
             } catch (InterruptedException e)
             {
 
@@ -100,6 +101,7 @@ public class UserIP extends Activity {
             Toast.makeText(this, "Verbinden met server mislukt, staat server aan?", Toast.LENGTH_LONG).show();
 
         } else {
+            //doorgaan naar MainActivity
             serverCheck = true;
             HomeFragment.serverIp = ip;
             Intent startApp = new Intent(this, MainActivity.class);

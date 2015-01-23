@@ -11,7 +11,7 @@ public class CheckNetwork {
     private static final String TAG = CheckNetwork.class.getSimpleName();
 
 
-
+    //Methode om internet verbinding te controleren, kan in andere bestanden worden aangeroepen
     public static boolean isInternetAvailable(Context context)
     {
         NetworkInfo info = (NetworkInfo) ((ConnectivityManager)
